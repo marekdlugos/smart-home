@@ -2,8 +2,28 @@ package fel.sit.omo;
 
 public class Person {
 
-    private String familyRole;
+    private String firstName;
+    private FamilyRole familyRole;
     private boolean isUsingDevice;
+    private Room isLocatedIn;
+
+    public Person(String firstName, FamilyRole familyRole, boolean isUsingDevice, Room isLocatedIn) {
+        this.firstName = firstName;
+        this.familyRole = familyRole;
+        this.isUsingDevice = isUsingDevice;
+        this.isLocatedIn = isLocatedIn;
+        System.out.println(toString());
+    }
+
+    @Override
+    public String toString() {
+        return "Person was created {" +
+                "First Name='" + firstName + '\'' +
+                ", Family Role=" + familyRole +
+                ", Is using Device?=" + isUsingDevice +
+                ", Is located in=" + isLocatedIn +
+                '}';
+    }
 
     public void shutWaterStream(){
         System.out.println("Water Stream was closed.");
@@ -17,9 +37,9 @@ public class Person {
         // TODO: Person should be "invisible" here?
     }
 
-    public <T extends Device> find(String name, Class<T> type){
-        // find method
-    }
+//    public <T extends Device> find(String name, Class<T> type){
+//        // find method
+//    }
 
     public void read(String document){
         System.out.println("Reading " + document + " .");
@@ -44,7 +64,7 @@ public class Person {
         isUsingDevice = usingDevice;
     }
 
-    public void wait() {
-        // wait method
-    }
+//    public void wait() {
+//        // wait method
+//    }
 }
