@@ -7,7 +7,7 @@ public class Device {
     private final int turnedOffConsumption;
     private final int idleConsumption;
     private final String unit;
-    private int warranty;
+    private int warranty; // stands for time left till the device will break
     private int criticalPriority;
 
     public Device(State state, int turnedOnConsumption, int turnedOffConsumption, int idleConsumption, String unit, int warranty, int criticalPriority) {
@@ -26,5 +26,37 @@ public class Device {
 
     public State getState(){
         return state;
+    }
+
+    public int getTurnedOnConsumption() {
+        return turnedOnConsumption;
+    }
+
+    public int getTurnedOffConsumption() {
+        return turnedOffConsumption;
+    }
+
+    public int getIdleConsumption() {
+        return idleConsumption;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public int getWarranty() {
+        return warranty;
+    }
+
+    public void setWarranty(int warranty) {
+        this.warranty = warranty;
+    }
+
+    public int getCriticalPriority() {
+        return criticalPriority;
+    }
+
+    public void setCriticalPriority(int criticalPriority) {
+        this.criticalPriority = criticalPriority;
     }
 }
