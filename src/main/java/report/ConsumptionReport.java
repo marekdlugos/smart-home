@@ -1,6 +1,6 @@
 package report;
 
-import entity.Device;
+import device.Device;
 import java.util.List;
 import java.util.ArrayList;
 

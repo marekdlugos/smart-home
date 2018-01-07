@@ -1,4 +1,4 @@
-package entity;
+package house;
 
 public class Backyard {
 }

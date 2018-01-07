@@ -1,6 +1,6 @@
 package report;
 
-import entity.House;
+import house.House;
 
 public class HouseConfigurationReport implements Report {
   private House house;

@@ -1,4 +1,4 @@
-package entity;
+package device;
 import device.Device;
 
 public interface State {

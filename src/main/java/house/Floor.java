@@ -1,4 +1,6 @@
-package entity;
+package house;
+
+import entity.Space;
 
 import java.util.List;
 import java.util.ArrayList;

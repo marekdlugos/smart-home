@@ -1,4 +1,4 @@
-package devices;
+package device;
 
 public class CD {
 }

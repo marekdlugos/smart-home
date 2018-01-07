@@ -1,5 +1,8 @@
 package entity;
 
+import device.Device;
+import house.Room;
+
 public class Person {
   private String firstName;
   private FamilyRole familyRole;

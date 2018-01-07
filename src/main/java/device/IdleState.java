@@ -1,6 +1,4 @@
-package entity;
-
-import device.Device;
+package device;
 
 public class IdleState implements State {
     @Override

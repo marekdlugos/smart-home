@@ -1,7 +1,8 @@
-package entity;
+package house;
 
 import device.Device;
 import device.Light;
+import entity.Space;
 
 import java.util.ArrayList;
 import java.util.List;
