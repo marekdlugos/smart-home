@@ -1,5 +1,5 @@
 package entity;
 
 public enum Equipment {
-    SKI, FOOTBALL, BASKETBALL, JOGGING, GOLF, ICEHOCKEY
+  SKI, FOOTBALL, BASKETBALL, JOGGING, GOLF, ICEHOCKEY
 }

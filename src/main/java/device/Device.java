@@ -5,9 +5,9 @@ import java.util.Date;
 public class Device {
 
     private State state;
-    private final int turnedOnConsumption;
-    private final int turnedOffConsumption;
-    private final int idleConsumption;
+    private final double turnedOnConsumption;
+    private final double turnedOffConsumption;
+    private final double idleConsumption;
     private final String unit;
     private int warranty; // stands for time left till the device will break
     private int criticalPriority;
@@ -32,15 +32,15 @@ public class Device {
         return state;
     }
 
-    public int getTurnedOnConsumption() {
+    public double getTurnedOnConsumption() {
         return turnedOnConsumption;
     }
 
-    public int getTurnedOffConsumption() {
+    public double getTurnedOffConsumption() {
         return turnedOffConsumption;
     }
 
-    public int getIdleConsumption() {
+    public double getIdleConsumption() {
         return idleConsumption;
     }
 
