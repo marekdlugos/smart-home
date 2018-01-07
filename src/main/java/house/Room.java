@@ -1,5 +1,8 @@
 package entity;
 
+import device.Device;
+import device.Light;
+
 import java.util.ArrayList;
 import java.util.List;
 

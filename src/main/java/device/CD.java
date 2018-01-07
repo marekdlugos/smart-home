@@ -1,4 +1,4 @@
-package entity;
+package devices;
 
 public class CD {
 }

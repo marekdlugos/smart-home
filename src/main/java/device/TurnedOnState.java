@@ -1,5 +1,7 @@
 package entity;
 
+import device.Device;
+
 public class TurnedOnState implements State {
     @Override
     public void doAction(Device device) {

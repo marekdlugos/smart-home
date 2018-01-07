@@ -1,5 +1,5 @@
 package entity;
-import javax.naming.Context;
+import device.Device;
 
 public interface State {
     public void doAction(Device device);

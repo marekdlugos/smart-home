@@ -1,6 +1,6 @@
 package entity;
 
-import javax.naming.Context;
+import device.Device;
 
 public class TurnedOffState implements State {
     @Override

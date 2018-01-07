@@ -1,5 +1,7 @@
 package entity;
 
+import device.Device;
+
 public class IdleState implements State {
     @Override
     public void doAction(Device device) {

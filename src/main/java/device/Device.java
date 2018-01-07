@@ -1,4 +1,6 @@
-package entity;
+package devices;
+
+import entity.State;
 
 import java.util.Date;
 
