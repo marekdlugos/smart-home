@@ -1,9 +1,9 @@
 package house;
 
-class Kitchen extends Room {
+public class Kitchen extends Room {
   protected Kitchen() {}
 
-  Kitchen(Floor floor) {
+  public Kitchen(Floor floor) {
     super(floor);
   }
 }

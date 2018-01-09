@@ -17,10 +17,10 @@ public class ConsumptionReport implements Report {
   }
 
   private Integer totalConsumption(Device device) {
-
+    return 0;
   }
 
-  private void print() {
+  public void print() {
     for(Device device : devices) {
       // time period
       // if(device.type == "ELECTRIC")
@@ -39,8 +39,8 @@ public class ConsumptionReport implements Report {
       //     Cost: xy €.
 
       System.out.println("---------- CONSUMPTION REPORT FOR LAST 24H ----------");
-      System.out.println("  " + device.name);
-      System.out.println("      " + "In the idle state: " + idleState.hours + " hour(s)." + "[Idle state consumption per hour: " + idleState.Consumption + "]" + "[Consumption: " + (idleState.hours*idleState.Consumption) + " kW]" + "[Cost: " + (idleState.hours*idleState.Consumption)*electricityCost + " €]");
+      System.out.println("  " + device.getClass().getSimpleName() );
+//      System.out.println("      " + "In the idle state: " + idleState.hours + " hour(s)." + "[Idle state consumption per hour: " + idleState.Consumption + "]" + "[Consumption: " + (idleState.hours*idleState.Consumption) + " kW]" + "[Cost: " + (idleState.hours*idleState.Consumption)*electricityCost + " €]");
 
     }
   }

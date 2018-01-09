@@ -11,10 +11,10 @@ public class Fridge extends Device {
   }
 
   public boolean withdraw(String item, Integer amount) {
-
+    return false;
   }
 
   public boolean put(String item, String amount) {
-
+    return false;
   }
 }
