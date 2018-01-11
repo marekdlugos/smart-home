@@ -10,7 +10,7 @@ import java.util.List;
 public class Room extends Space {
   private Floor floor;
   private Light light;
-  private List<OutdoorBlind> blinds = new ArrayList<OutdoorBlind>();
+  private List<Window> windows = new ArrayList<Window>();
 
   private List<Device> devices;
 
@@ -22,9 +22,9 @@ public class Room extends Space {
     this.devices = new ArrayList<Device>();
   }
 
-  public void add(OutdoorBlind blind) {
-    blind.setRoom(this);
-    this.blinds.add(blind);
+  public void add(Window window) {
+    window.setRoom(this);
+    this.windows.add(window);
   }
 
   public Floor getFloor() {

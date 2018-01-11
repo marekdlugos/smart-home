@@ -1,22 +1,30 @@
 package house;
 
 public class Window {
-    private Room room;
-    private boolean isOpened = false;
+  private Room room;
+  private boolean isOpened = false;
 
-    public Window(Room room) {
-      this.room = room;
-    }
+  public Window(Room room) {
+    this.room = room;
+  }
 
-    public boolean isOpened() {
-      return isOpened;
-    }
+  public boolean isOpened() {
+    return isOpened;
+  }
 
-    public void close() {
-      isOpened = false;
-    }
+  public void close() {
+    isOpened = false;
+  }
 
-    public void open() {
-      isOpened = true;
-    }
+  public void open() {
+    isOpened = true;
+  }
+
+  public Room getRoom() {
+    return room;
+  }
+
+  public void setRoom(Room room) {
+    this.room = room;
+  }
 }

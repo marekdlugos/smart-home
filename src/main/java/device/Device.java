@@ -12,18 +12,18 @@ public class Device {
   private int criticalPriority;
   private Date createdAt;
 
-  protected Device() {}
+//  public Device(State state, int turnedOnConsumption, int turnedOffConsumption, int idleConsumption, String unit, int warranty, int criticalPriority) {
+//    this.state = state;
+//    this.turnedOnConsumption = turnedOnConsumption;
+//    this.turnedOffConsumption = turnedOffConsumption;
+//    this.idleConsumption = idleConsumption;
+//    this.unit = unit;
+//    this.warranty = warranty;
+//    this.criticalPriority = criticalPriority;
+//    this.createdAt = new Date();
+//  }
 
-  public Device(State state, int turnedOnConsumption, int turnedOffConsumption, int idleConsumption, String unit, int warranty, int criticalPriority) {
-    this.state = state;
-    this.turnedOnConsumption = turnedOnConsumption;
-    this.turnedOffConsumption = turnedOffConsumption;
-    this.idleConsumption = idleConsumption;
-    this.unit = unit;
-    this.warranty = warranty;
-    this.criticalPriority = criticalPriority;
-    this.createdAt = new Date();
-  }
+  public Device() {}
 
   public void setState(State state){
       this.state = state;
