@@ -2,7 +2,6 @@ package entity;
 
 import event.EventMachine;
 import event.Event;
-import event.ThisEvent;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -10,6 +9,7 @@ import java.util.Observer;
 
 public class Entity implements Observer {
   public void emit(Event event) {
+    event.setSource(this);
     EventMachine.publish(event);
   }
 

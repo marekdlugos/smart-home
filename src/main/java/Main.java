@@ -1,6 +1,4 @@
 import device.Microwave;
-import event.EventMachine;
-import event.ThisEvent;
 import house.House;
 import house.Room;
 import house.Floor;
@@ -25,11 +23,9 @@ public class Main {
     m.subscribe();
     mc.subscribe();
 
-    EventMachine.publish(new ThisEvent());
-
-    while(it.hasNext()) {
-      System.out.println(it.next() + " " + it.next().getFloor());
-    }
+//    while(it.hasNext()) {
+//      System.out.println(it.next() + " " + it.next().getFloor());
+//    }
 
     // factorize the shit
     // apply random cycle to them
@@ -43,7 +39,5 @@ public class Main {
         // Report akcí (aktivit) jednotlivých osob a zvířat, kolikrát které osoby použily které zařízení
       // ConsumptionReport
         // Kolik jednotlivé spotřebiče spotřebovaly eletřiny, plynu, vody. Včetně finančního vyčíslení
-
-
   }
 }

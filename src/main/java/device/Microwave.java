@@ -4,7 +4,6 @@ import device.microwave.MicrowaveState;
 import device.microwave.TurnedOffState;
 
 import event.Event;
-import event.ThisEvent;
 
 public class Microwave extends Device {
   private String contents;
@@ -69,7 +68,9 @@ public class Microwave extends Device {
   }
 
   public void handle(ThisEvent event) {
-    System.out.println("Handled thisevent event " + event);
+    System.out.println("Handled thisevent event " + event + " by " + this);
+
+    event.setHandler(this);
   }
 
   public void handle(Event event) {
