@@ -25,6 +25,6 @@ public class Entity implements Observer {
   public void handle(Event event) {
   }
 
-  public void handle(ThisEvent event) {
-  }
+//  public void handle(SpecialEvent event) {
+//  }
 }

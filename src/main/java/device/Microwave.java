@@ -67,14 +67,11 @@ public class Microwave extends Device {
     this.contents = contents;
   }
 
-  public void handle(ThisEvent event) {
-    System.out.println("Handled thisevent event " + event + " by " + this);
-
-    event.setHandler(this);
-  }
+//  public void handle(SpecialEvent event) {
+//    event.setHandler(this);
+//  }
 
   public void handle(Event event) {
-//    this.handle();
-    System.out.println("Handled normal event " + event);
+    event.setHandler(this);
   }
 }
