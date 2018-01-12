@@ -1,12 +1,19 @@
 package event;
 
-import java.util.List;
-import java.util.ArrayList;
+import entity.Entity;
 
 public class EventMachine {
-  private static List<Event> events = new ArrayList<Event>();
+  private static EventCluster eventCluster = new EventCluster();
 
-  public static void emit() {
+  public static void publish(Event event) {
+    eventCluster.publish(event);
+  }
 
+  public static EventCluster getEventCluster() {
+    return eventCluster;
+  }
+
+  public static void addSubscriber(Entity entity) {
+    eventCluster.addObserver(entity);
   }
 }

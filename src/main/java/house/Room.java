@@ -11,7 +11,6 @@ public class Room extends Space {
   private Floor floor;
   private Light light;
   private List<Window> windows = new ArrayList<Window>();
-
   private List<Device> devices;
 
   protected Room() {}
@@ -25,6 +24,10 @@ public class Room extends Space {
   public void add(Window window) {
     window.setRoom(this);
     this.windows.add(window);
+  }
+
+  public void place(Device device) {
+    devices.add(device);
   }
 
   public Floor getFloor() {
@@ -49,9 +52,5 @@ public class Room extends Space {
 
   public Light light() {
     return light;
-  }
-
-  public void place(Device device) {
-    devices.add(device);
   }
 }

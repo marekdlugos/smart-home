@@ -1,10 +1,13 @@
 package device;
 
+import device.fridge.FridgeState;
+
 import java.util.Map;
 import java.util.HashMap;
 
 public class Fridge extends Device {
   Map<String, Integer> contents;
+  FridgeState state;
 
   public Fridge() {
     this.contents = new HashMap<String, Integer>();
@@ -14,7 +17,11 @@ public class Fridge extends Device {
     return false;
   }
 
-  public boolean put(String item, String amount) {
+  public boolean withdraw(String item) {
+    return false;
+  }
+
+  public boolean place(String item, String amount) {
     return false;
   }
 }

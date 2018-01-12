@@ -1,20 +1,23 @@
 package device;
 
 import device.microwave.MicrowaveState;
+import device.microwave.TurnedOffState;
+
+import event.Event;
+import event.ThisEvent;
 
 public class Microwave extends Device {
   private String contents;
 
   private MicrowaveState state;
-
-  private Long createdAt;
   private Long stateLastChangedAt;
   private Double energyConsumed;
 
   public Microwave() {
-    this.createdAt = System.currentTimeMillis();
-    this.stateLastChangedAt = this.createdAt;
+    super();
+    this.stateLastChangedAt = this.getCreatedAt();
     this.energyConsumed = 0.0;
+    this.state = new TurnedOffState();
   }
 
   public void setState(MicrowaveState state) {
@@ -63,5 +66,14 @@ public class Microwave extends Device {
 
   public void setContents(String contents) {
     this.contents = contents;
+  }
+
+  public void handle(ThisEvent event) {
+    System.out.println("Handled thisevent event " + event);
+  }
+
+  public void handle(Event event) {
+//    this.handle();
+    System.out.println("Handled normal event " + event);
   }
 }

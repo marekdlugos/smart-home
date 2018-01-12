@@ -1,3 +1,6 @@
+import device.Microwave;
+import event.EventMachine;
+import event.ThisEvent;
 import house.House;
 import house.Room;
 import house.Floor;
@@ -16,6 +19,13 @@ public class Main {
     Room room3 = new Room(house.floor(1));
 
     HouseIterator it = house.iterator();
+
+    Microwave m = new Microwave();
+    Microwave mc = new Microwave();
+    m.subscribe();
+    mc.subscribe();
+
+    EventMachine.publish(new ThisEvent());
 
     while(it.hasNext()) {
       System.out.println(it.next() + " " + it.next().getFloor());

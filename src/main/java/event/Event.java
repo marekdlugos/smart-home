@@ -1,4 +1,7 @@
 package event;
 
-public class Event {
+import entity.Entity;
+
+public abstract class Event {
+  public abstract void dispatchToHandler(Entity handler);
 }
