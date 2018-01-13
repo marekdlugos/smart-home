@@ -1,9 +1,14 @@
+import device.Device;
 import device.Microwave;
 import house.House;
 import house.Room;
 import house.Floor;
 import house.Kitchen;
 import iterator.HouseIterator;
+import report.ConsumptionReport;
+import report.HouseConfigurationReport;
+
+import java.util.ArrayList;
 
 public class Main {
   public static void main(String[] args) {
@@ -22,6 +27,15 @@ public class Main {
     Microwave mc = new Microwave();
     m.subscribe();
     mc.subscribe();
+
+    HouseConfigurationReport houseConfigReport = new HouseConfigurationReport(house);
+    houseConfigReport.print();
+
+    ArrayList<Device> devicesList = new ArrayList<>();
+    devicesList.add(m);
+    devicesList.add(mc);
+    ConsumptionReport consumptionReport = new ConsumptionReport(devicesList);
+    consumptionReport.print();
 
 //    while(it.hasNext()) {
 //      System.out.println(it.next() + " " + it.next().getFloor());

@@ -12,8 +12,6 @@ public class Floor extends Space {
 //  protected Floor() {}
 
   public Floor() {
-//    System.out.println("Floor was created.");
-//    this.house = house;
   }
 
   public List<Room> getRooms() {
