@@ -31,7 +31,7 @@ public class Main {
     HouseConfigurationReport houseConfigReport = new HouseConfigurationReport(house);
     houseConfigReport.print();
 
-    ArrayList<Device> devicesList = new ArrayList<>();
+    ArrayList<Device> devicesList = new ArrayList<Device>();
     devicesList.add(m);
     devicesList.add(mc);
     ConsumptionReport consumptionReport = new ConsumptionReport(devicesList);
