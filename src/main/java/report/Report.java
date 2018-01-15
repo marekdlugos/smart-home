@@ -1,5 +1,7 @@
 package report;
 
+import java.io.FileNotFoundException;
+
 public interface Report {
-  void print();
+  void print() throws FileNotFoundException;
 }

@@ -26,23 +26,21 @@ public class ConsumptionReport implements Report {
   }
 
   public void print() {
-
-
-    PrintWriter writer = null;
-    try {
-      writer = new PrintWriter("/Users/Marek/Desktop/Consumption-Report.txt", "UTF-8");
-      writer.println("------------------------- CONSUMPTION REPORT -------------------------");
-      writer.println(" ");
-      for(Device device : devices) {
-        writer.println(device.getClass());
-      }
-    } catch (FileNotFoundException e) {
-      e.printStackTrace();
-    } catch (UnsupportedEncodingException e) {
-      e.printStackTrace();
-    }
-
-    writer.close();
+//    PrintWriter writer = null;
+//    try {
+//      writer = new PrintWriter("/Users/Marek/Desktop/Consumption-Report.txt", "UTF-8");
+//      writer.println("------------------------- CONSUMPTION REPORT -------------------------");
+//      writer.println(" ");
+//      for(Device device : devices) {
+//        writer.println(device.getClass());
+//      }
+//    } catch (FileNotFoundException e) {
+//      e.printStackTrace();
+//    } catch (UnsupportedEncodingException e) {
+//      e.printStackTrace();
+//    }
+//
+//    writer.close();
 
 //    for(Device device : devices) {
 //      // time period
