@@ -7,11 +7,14 @@ import house.Kitchen;
 import iterator.HouseIterator;
 import report.ConsumptionReport;
 import report.HouseConfigurationReport;
+import tree.Node;
 
 import java.util.ArrayList;
 
 public class Main {
   public static void main(String[] args) {
+    Node firstHouseVersion = new Node(null);
+    firstHouseVersion.setId(1);
     House house = new House();
     Room room1 = new Room(house.floor(0));
     Room room2 = new Room(house.floor(0));
@@ -36,6 +39,8 @@ public class Main {
     devicesList.add(mc);
     ConsumptionReport consumptionReport = new ConsumptionReport(devicesList);
     consumptionReport.print();
+
+    firstHouseVersion.setHouseVersion(house);
 
 //    while(it.hasNext()) {
 //      System.out.println(it.next() + " " + it.next().getFloor());
