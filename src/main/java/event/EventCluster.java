@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Observable;
 
 public class EventCluster extends Observable {
-  private static List<Event> events = new ArrayList<Event>();
+  private List<Event> events = new ArrayList<Event>();
 
   public EventCluster() {
     super();
@@ -15,5 +15,9 @@ public class EventCluster extends Observable {
     events.add(event);
     setChanged();
     notifyObservers(event);
+  }
+
+  public List<Event> getEvents() {
+    return events;
   }
 }

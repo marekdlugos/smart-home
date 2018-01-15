@@ -1,18 +1,22 @@
 import device.Device;
+import device.DeviceManual;
 import device.Microwave;
+import event.EventMachine;
+import event.FoodReadyEvent;
 import house.House;
 import house.Room;
 import house.Floor;
 import house.Kitchen;
 import iterator.HouseIterator;
 import report.ConsumptionReport;
+import report.EventReport;
 import report.HouseConfigurationReport;
-import tree.Node;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main {
-  public static void main(String[] args) {
+  public static void main(String[] args) throws IOException {
     Node firstHouseVersion = new Node(null);
     firstHouseVersion.setId(1);
     House house = new House();
@@ -31,14 +35,21 @@ public class Main {
     m.subscribe();
     mc.subscribe();
 
-    HouseConfigurationReport houseConfigReport = new HouseConfigurationReport(house);
-    houseConfigReport.print();
+    m.emit(new FoodReadyEvent());
+    m.emit(new FoodReadyEvent());
 
-    ArrayList<Device> devicesList = new ArrayList<Device>();
-    devicesList.add(m);
-    devicesList.add(mc);
-    ConsumptionReport consumptionReport = new ConsumptionReport(devicesList);
-    consumptionReport.print();
+//    EventReport r = new EventReport(EventMachine.getEventCluster().getEvents());
+//    r.print();
+
+//    HouseConfigurationReport houseConfigReport = new HouseConfigurationReport(house);
+//    houseConfigReport.print();
+//
+//
+//    ArrayList<Device> devicesList = new ArrayList<Device>();
+//    devicesList.add(m);
+//    devicesList.add(mc);
+//    ConsumptionReport consumptionReport = new ConsumptionReport(devicesList);
+//    consumptionReport.print();
 
     firstHouseVersion.setHouseVersion(house);
 

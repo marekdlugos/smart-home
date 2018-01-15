@@ -1,4 +1,4 @@
 package entity;
 
-public class Pet {
+public class Dog {
 }

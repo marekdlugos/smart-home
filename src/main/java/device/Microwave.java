@@ -59,6 +59,10 @@ public class Microwave extends Device {
     return this.state.withdraw(this);
   }
 
+  public boolean empty() {
+    return this.getContents().length() == 0;
+  }
+
   public String getContents() {
     return contents;
   }

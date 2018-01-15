@@ -1,6 +1,7 @@
 package device.microwave;
 
 import device.Microwave;
+import event.FoodReadyEvent;
 
 public class ActiveState extends MicrowaveState {
   public boolean pressStandbyButton(Microwave microwave) {
@@ -13,6 +14,11 @@ public class ActiveState extends MicrowaveState {
 
   public boolean pressStopButton(Microwave microwave) {
     microwave.setState(new IdleState());
+
+    if (!microwave.empty()) {
+      microwave.emit(new FoodReadyEvent());
+    }
+
     return true;
   }
 

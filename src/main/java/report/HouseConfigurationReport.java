@@ -21,23 +21,23 @@ public class HouseConfigurationReport implements Report {
 
   public void print() {
 
-    PrintWriter writer = null;
-    try {
-      HouseIterator it = house.iterator();
-      writer = new PrintWriter("/Users/Marek/Desktop/House-Config-Report.txt", "UTF-8");
-      writer.println("------------------------- HOUSE CONFIGURATION REPORT -------------------------");
-//      while(it.hasNext()) {
-//        writer.println(it.next().getFloor().getRooms());
-//        writer.println(it.next().getFloor().getHouse());
-//        writer.println(it.next().getFloor().getClass() + " -> " + it.next().getClass());
-//      }
-    } catch (FileNotFoundException e) {
-      e.printStackTrace();
-    } catch (UnsupportedEncodingException e) {
-      e.printStackTrace();
-    }
-
-    writer.close();
+//    PrintWriter writer = null;
+//    try {
+//      HouseIterator it = house.iterator();
+//      writer = new PrintWriter("/Users/Marek/Desktop/House-Config-Report.txt", "UTF-8");
+//      writer.println("------------------------- HOUSE CONFIGURATION REPORT -------------------------");
+////      while(it.hasNext()) {
+////        writer.println(it.next().getFloor().getRooms());
+////        writer.println(it.next().getFloor().getHouse());
+////        writer.println(it.next().getFloor().getClass() + " -> " + it.next().getClass());
+////      }
+//    } catch (FileNotFoundException e) {
+//      e.printStackTrace();
+//    } catch (UnsupportedEncodingException e) {
+//      e.printStackTrace();
+//    }
+//
+//    writer.close();
 
     // HOUSE
     // HOUSE -> Floor 1 []
