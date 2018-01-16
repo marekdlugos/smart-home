@@ -1,5 +1,6 @@
 package device;
 
+import device.phone.ActiveState;
 import device.phone.PhoneState;
 import device.phone.TurnedOffState;
 import event.Event;
@@ -76,5 +77,9 @@ public class Phone extends Device {
 
   public void handle(Event event) {
     event.setHandler(this);
+  }
+
+  public boolean isSwitchedOn() {
+    return this.state instanceof ActiveState;
   }
 }

@@ -1,12 +1,13 @@
 package device;
 
+import device.microwave.ActiveState;
 import device.microwave.MicrowaveState;
 import device.microwave.TurnedOffState;
 
 import event.Event;
 
 public class Microwave extends Device {
-  private String contents;
+  private String contents = "";
 
   private MicrowaveState state;
   private Long stateLastChangedAt;
@@ -75,7 +76,7 @@ public class Microwave extends Device {
 //    event.setHandler(this);
 //  }
 
-  public void handle(Event event) {
-    event.setHandler(this);
+  public boolean isSwitchedOn() {
+    return this.state instanceof ActiveState;
   }
 }

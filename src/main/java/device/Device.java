@@ -24,4 +24,8 @@ public class Device extends Entity {
   public void setCurrentUser(Person currentUser) {
     this.currentUser = currentUser;
   }
+
+  public DeviceManual getManual() {
+    return DeviceManual.fetch(this);
+  }
 }

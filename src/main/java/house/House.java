@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import entity.Animal;
 import iterator.HouseIterator;
 
 public class House {
   private List<Floor> floors = new ArrayList<Floor>();
+  private List<Animal> inhabitants = new ArrayList<Animal>();
 
   public House() {
     floors.add(new Floor());
@@ -40,5 +42,13 @@ public class House {
 
   public HouseIterator iterator() {
     return new HouseIterator(this);
+  }
+
+  public void register(Animal animal) {
+    inhabitants.add(animal);
+  }
+
+  public List<Animal> getInhabitants() {
+    return inhabitants;
   }
 }

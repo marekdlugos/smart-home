@@ -12,32 +12,39 @@ import iterator.HouseIterator;
 import report.ConsumptionReport;
 import report.EventReport;
 import report.HouseConfigurationReport;
+import simulation.DummyHouse;
+import simulation.NaiveSimulation;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main {
   public static void main(String[] args) throws IOException {
-    Node firstHouseVersion = new Node(null);
-    firstHouseVersion.setId(1);
-    House house = new House();
-    Room room1 = new Room(house.floor(0));
-    Room room2 = new Room(house.floor(0));
-    Room room4 = new Kitchen(house.floor(0));
+    new NaiveSimulation(DummyHouse.get()).simulate(4);
+    System.out.println(EventMachine.getEventCluster().getEvents().size());
 
-    house.add(new Floor());
+//    for(int i = 0; i < 30; i++) {
+//      System.out.println(EventMachine.getEventCluster().getEvents().get(i));
+//    }
 
-    Room room3 = new Room(house.floor(1));
-
-    HouseIterator it = house.iterator();
-
-    Microwave m = new Microwave();
-    Microwave mc = new Microwave();
-    m.subscribe();
-    mc.subscribe();
-
-    m.emit(new FoodReadyEvent());
-    m.emit(new FoodReadyEvent());
+//    House house = new House();
+//    Room room1 = new Room(house.floor(0));
+//    Room room2 = new Room(house.floor(0));
+//    Room room4 = new Kitchen(house.floor(0));
+//
+//    house.add(new Floor());
+//
+//    Room room3 = new Room(house.floor(1));
+//
+//    HouseIterator it = house.iterator();
+//
+//    Microwave m = new Microwave();
+//    Microwave mc = new Microwave();
+//    m.subscribe();
+//    mc.subscribe();
+//
+//    m.emit(new FoodReadyEvent());
+//    m.emit(new FoodReadyEvent());
 
 //    EventReport r = new EventReport(EventMachine.getEventCluster().getEvents());
 //    r.print();
@@ -52,7 +59,7 @@ public class Main {
 //    ConsumptionReport consumptionReport = new ConsumptionReport(devicesList);
 //    consumptionReport.print();
 
-    firstHouseVersion.setHouseVersion(house);
+//    firstHouseVersion.setHouseVersion(house);
 
 //    while(it.hasNext()) {
 //      System.out.println(it.next() + " " + it.next().getFloor());

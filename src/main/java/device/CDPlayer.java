@@ -1,11 +1,12 @@
 package device;
 
+import device.cdplayer.ActiveState;
 import device.cdplayer.CDPlayerState;
 import device.cdplayer.TurnedOffState;
 import event.Event;
 
 public class CDPlayer extends Device {
-  private String contents;
+  private String contents = "";
 
   private CDPlayerState state;
   private Long stateLastChangedAt;
@@ -70,7 +71,11 @@ public class CDPlayer extends Device {
 //    event.setHandler(this);
 //  }
 
-  public void handle(Event event) {
-    event.setHandler(this);
+//  public void handle(Event event) {
+//    event.setHandler(this);
+//  }
+
+  public boolean isSwitchedOn() {
+    return this.state instanceof ActiveState;
   }
 }

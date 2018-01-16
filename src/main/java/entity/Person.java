@@ -7,18 +7,32 @@ import house.Room;
 
 import java.util.Date;
 
-public class Person {
-  private Room currentRoom;
+public class Person extends Animal {
   private Device currentDevice;
 
-  public void enterRoom(Room room) {
+  public boolean use(Device device) {
+    if (device.getCurrentUser() != null) {
+      return false;
+    }
 
-  }
-
-  public void use(Device device) {
     this.currentDevice = device;
     this.currentDevice.setCurrentUser(this);
 
     ActivityMachine.record(new Activity(this, device, new Date()));
+
+    return true;
+  }
+
+  public Device getCurrentDevice() {
+    return currentDevice;
+  }
+
+  public void release() {
+    this.currentDevice.setCurrentUser(null);
+    this.currentDevice = null;
+  }
+
+  public boolean isUsingDevice() {
+    return currentDevice != null;
   }
 }

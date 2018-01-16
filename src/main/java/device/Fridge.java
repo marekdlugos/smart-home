@@ -1,5 +1,6 @@
 package device;
 
+import device.fridge.ActiveState;
 import device.fridge.FridgeState;
 import device.fridge.TurnedOffState;
 
@@ -25,15 +26,15 @@ public class Fridge extends Device {
   }
 
   public boolean withdraw(String item, Integer amount) {
-    return false;
+    return this.state.withdraw(this, item, amount);
   }
 
   public boolean withdraw(String item) {
-    return false;
+    return this.state.withdraw(this, item, 1);
   }
 
-  public boolean place(String item, String amount) {
-    return false;
+  public boolean place(String item, Integer amount) {
+    return this.state.withdraw(this, item, amount);
   }
 
   public boolean turnOn() {
@@ -46,5 +47,9 @@ public class Fridge extends Device {
 
   public Map<String, Integer> getContents() {
     return contents;
+  }
+
+  public boolean isSwitchedOn() {
+    return this.state instanceof ActiveState;
   }
 }

@@ -1,5 +1,6 @@
 package device;
 
+import device.television.ActiveState;
 import device.television.TelevisionState;
 import device.television.TurnedOffState;
 import event.Event;
@@ -70,4 +71,8 @@ public class Television extends Device {
     public void handle(Event event) {
       event.setHandler(this);
     }
+
+  public boolean isSwitchedOn() {
+    return this.state instanceof ActiveState;
+  }
 }

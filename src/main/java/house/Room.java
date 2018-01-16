@@ -2,6 +2,7 @@ package house;
 
 import device.Device;
 import device.Light;
+import entity.Animal;
 import entity.Space;
 
 import java.util.ArrayList;
@@ -11,14 +12,14 @@ public class Room extends Space {
   private Floor floor;
   private Light light;
   private List<Window> windows = new ArrayList<Window>();
-  private List<Device> devices;
+  private List<Device> devices = new ArrayList<Device>();
+  private List<Animal> occupants = new ArrayList<Animal>();
 
   protected Room() {}
 
   public Room(Floor floor) {
     this.floor = floor;
     this.floor.add(this);
-    this.devices = new ArrayList<Device>();
   }
 
   public void add(Window window) {
@@ -52,5 +53,13 @@ public class Room extends Space {
 
   public Light light() {
     return light;
+  }
+
+  public List<Device> getDevices() {
+    return devices;
+  }
+
+  public List<Animal> getOccupants() {
+    return occupants;
   }
 }
