@@ -3,7 +3,8 @@ import device.DeviceManual;
 import device.Microwave;
 import event.EventMachine;
 import event.FoodReadyEvent;
-import tree.Node;
+import persistence.FullyPersistentData;
+import persistence.Tree;
 import house.House;
 import house.Room;
 import house.Floor;
@@ -22,6 +23,14 @@ public class Main {
   public static void main(String[] args) throws IOException {
     new NaiveSimulation(DummyHouse.get()).simulate(4);
     System.out.println(EventMachine.getEventCluster().getEvents().size());
+
+    //For PERSISTENT DS check purpose
+    Tree m_house = new Tree();
+    House house = new House();
+
+    FullyPersistentData persistentData = new FullyPersistentData();
+    persistentData.contructHouse(m_house);
+
 
 //    for(int i = 0; i < 30; i++) {
 //      System.out.println(EventMachine.getEventCluster().getEvents().get(i));

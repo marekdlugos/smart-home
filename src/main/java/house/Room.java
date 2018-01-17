@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Room extends Space {
+  private int id;
   private Floor floor;
   private Light light;
   private List<Window> windows = new ArrayList<Window>();
@@ -25,6 +26,14 @@ public class Room extends Space {
   public void add(Window window) {
     window.setRoom(this);
     this.windows.add(window);
+  }
+
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
   }
 
   public void place(Device device) {

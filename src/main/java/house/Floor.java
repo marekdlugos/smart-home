@@ -8,6 +8,9 @@ import java.util.ArrayList;
 
 public class Floor extends Space {
 
+  @JsonProperty("id")
+  private int id;
+
   @JsonProperty("name")
   private String name;
 
@@ -20,6 +23,14 @@ public class Floor extends Space {
   //  protected Floor() {}
 
   public Floor() {
+  }
+
+  public int getId() {
+    return id;
+  }
+
+  public void setId(int id) {
+    this.id = id;
   }
 
   public List<Room> getRooms() {

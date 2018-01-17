@@ -30,6 +30,6 @@ public class ConfigLoader {
   }
 
   /*
-  TO-DO: use Jackson tree model and parse to JSON nodes due to the JSON file structure
+  TO-DO: use Jackson model and parse to JSON nodes due to the JSON file structure
    */
 }
