@@ -35,14 +35,6 @@ public class Room extends Space {
     return floor;
   }
 
-  public void setFloor(Floor floor) {
-    this.floor = floor;
-  }
-
-  public boolean isLocked() {
-    return false;
-  }
-
   public boolean switchLightOff() {
     return light.switchOn();
   }
