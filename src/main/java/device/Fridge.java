@@ -10,6 +10,8 @@ import java.util.HashMap;
 public class Fridge extends Device {
   Map<String, Integer> contents;
   FridgeState state;
+  private Long stateLastChangedAt;
+  private Double energyConsumed;
 
   public Fridge() {
     super();
@@ -18,11 +20,17 @@ public class Fridge extends Device {
   }
 
   public void setState(FridgeState state) {
-//    this.energyConsumed += calculateConsumption(stateLastChangedAt, System.currentTimeMillis(), state.getConsumptionRate());
+    this.energyConsumed += calculateConsumption(stateLastChangedAt, System.currentTimeMillis(), state.getConsumptionRate());
 
-//    touchStateChangedAt();
+    touchStateChangedAt();
 
     this.state = state;
+  }
+
+  public double calculateConsumption(Long from, Long to, Double consumptionPerHour) {
+    Long period = to - from;
+    Double totalConsumption = period * consumptionPerHour;
+    return (this.energyConsumed =+ totalConsumption);
   }
 
   public boolean withdraw(String item, Integer amount) {

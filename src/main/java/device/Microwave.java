@@ -28,7 +28,9 @@ public class Microwave extends Device {
   }
 
   public double calculateConsumption(Long from, Long to, Double consumptionPerHour) {
-    return 0;
+    Long period = to - from;
+    Double totalConsumption = period * consumptionPerHour;
+    return (this.energyConsumed =+ totalConsumption);
   }
 
   public void touchStateChangedAt() {
