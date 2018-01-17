@@ -9,12 +9,10 @@ public class CDPlayer extends Device {
   private String contents = "";
 
   private CDPlayerState state;
-  private Long stateLastChangedAt;
   private Double energyConsumed;
 
   public CDPlayer() {
     super();
-    this.stateLastChangedAt = this.getCreatedAt();
     this.energyConsumed = 0.0;
     this.state = new TurnedOffState();
   }
@@ -29,10 +27,6 @@ public class CDPlayer extends Device {
 
   public double calculateConsumption(Long from, Long to, Double consumptionPerHour) {
     return 0;
-  }
-
-  public void touchStateChangedAt() {
-    this.stateLastChangedAt = System.currentTimeMillis();
   }
 
   public boolean place(String contents) {

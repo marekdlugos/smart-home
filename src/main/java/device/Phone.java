@@ -14,7 +14,6 @@ public class Phone extends Device {
 
   public Phone() {
     super();
-    this.stateLastChangedAt = this.getCreatedAt();
     this.energyConsumed = 0.0;
     this.state = new TurnedOffState();
   }

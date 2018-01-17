@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import device.Sensor;
 import entity.Animal;
 import iterator.HouseIterator;
 
 public class House {
   private List<Floor> floors = new ArrayList<Floor>();
   private List<Animal> inhabitants = new ArrayList<Animal>();
+  private List<Sensor> sensors = new ArrayList<Sensor>();
 
   public House() {
     floors.add(new Floor());
@@ -30,14 +32,6 @@ public class House {
 
   public List<Floor> getFloors() {
     return floors;
-  }
-
-  public List<Room> fetchRooms() {
-    return null;
-  }
-
-  boolean isLocked() {
-    return floor(0).getRooms().get(0).isLocked();
   }
 
   public HouseIterator iterator() {

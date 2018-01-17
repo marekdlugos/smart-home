@@ -7,7 +7,10 @@ public class Device extends Entity {
   private int warranty; // stands for time left till the device will break
   private int criticalPriority;
   private Long createdAt;
+  protected Long stateLastChangedAt;
   private Person currentUser;
+  private DeviceState state;
+
 
   public Device() {
     this.createdAt = System.currentTimeMillis();
@@ -27,5 +30,24 @@ public class Device extends Entity {
 
   public DeviceManual getManual() {
     return DeviceManual.fetch(this);
+  }
+
+  public void touchStateChangedAt() {
+    this.stateLastChangedAt = System.currentTimeMillis();
+  }
+
+
+
+//
+//  public boolean turnOn() {
+//    return this.state.pressStandbyButton(this);
+//  }
+//
+//  public boolean turnOff() {
+//    return this.state.pressStandbyButton(this);
+//  }
+
+  public boolean isActive() {
+    return false;
   }
 }

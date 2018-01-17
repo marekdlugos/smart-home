@@ -15,7 +15,6 @@ public class Television extends Device {
 
     public Television() {
       super();
-      this.stateLastChangedAt = this.getCreatedAt();
       this.energyConsumed = 0.0;
       this.state = new TurnedOffState();
     }
