@@ -19,7 +19,17 @@ public class ConfigLoader {
     jsonMapper = new ObjectMapper();
   }
 
-  public House loadConfig(String jsonFile) throws IOException {
-    return jsonMapper.readValue(new File(jsonFile), House.class);
+  /**
+   * Class which loads JSON file containing house configuration
+   * @param pathToJsonFile  the string representation of JSON configuration file path
+   *
+   */
+
+  public House loadConfig(String pathToJsonFile) throws IOException {
+    return jsonMapper.readValue(new File(pathToJsonFile), House.class);
   }
+
+  /*
+  TO-DO: use Jackson tree model and parse to JSON nodes due to the JSON file structure
+   */
 }
