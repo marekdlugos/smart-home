@@ -16,8 +16,6 @@ public class HouseConfigurationReport implements Report {
   private List<Room> rooms;
   private List<Floor> floors;
 
-
-
   private StringBuilder report;
 
   private static final String header = "------------- House Configuration Report -------------\n\n";
@@ -40,7 +38,6 @@ public class HouseConfigurationReport implements Report {
       report.append("Floor no. " + index + "\n");
       appendRooms(floor.getRooms());
       report.append("\n");
-      //report.append("_________\n");
       index++;
     }
     report.append(footer);
@@ -49,15 +46,15 @@ public class HouseConfigurationReport implements Report {
   private void appendRooms(List<Room> rooms) {
     report.append("Rooms\n");
     for (Room room : rooms) {
-      report.append("  " + room.toString() + "\n");
+      report.append("  " + room.getClass().getSimpleName() + "\n");
       appendDevices(room.getDevices());
     }
   }
 
   private void appendDevices(List<Device> devices) {
+    report.append("    Devices\n");
     for (Device device : devices) {
-      report.append("    Devices\n");
-      report.append("        " + device.toString() + "\n");
+      report.append("        " + device.getClass().getSimpleName() + "\n");
     }
   }
 

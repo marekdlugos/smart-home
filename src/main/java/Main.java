@@ -2,8 +2,6 @@ import device.*;
 import event.EventMachine;
 import event.FoodReadyEvent;
 import house.*;
-import persistence.FullyPersistentData;
-import persistence.Tree;
 import iterator.HouseIterator;
 import report.ConsumptionReport;
 import report.EventReport;
