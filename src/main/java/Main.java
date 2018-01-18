@@ -10,6 +10,7 @@ import iterator.HouseIterator;
 import report.ConsumptionReport;
 import report.EventReport;
 import report.HouseConfigurationReport;
+import report.SavingsReport;
 import simulation.DummyHouse;
 import simulation.NaiveSimulation;
 
@@ -47,11 +48,11 @@ public class Main {
 //    EventReport r = new EventReport(EventMachine.getEventCluster().getEvents());
 //    r.print();
 
-    HouseConfigurationReport houseConfigReport = new HouseConfigurationReport(house);
+    HouseConfigurationReport houseConfigReport = new HouseConfigurationReport(DummyHouse.get());
     houseConfigReport.print();
     houseConfigReport.generate();
 
-    SavingsReport savingsReport = new SavingsReport(house);
+    SavingsReport savingsReport = new SavingsReport(DummyHouse.get());
     savingsReport.print();
     savingsReport.generate();
 //
