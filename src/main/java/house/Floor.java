@@ -1,12 +1,11 @@
 package house;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import entity.Space;
 
 import java.util.List;
 import java.util.ArrayList;
 
-public class Floor extends Space {
+public class Floor {
 
   @JsonProperty("id")
   private int id;

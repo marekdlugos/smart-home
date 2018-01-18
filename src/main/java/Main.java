@@ -1,4 +1,8 @@
-import device.*;
+import device.Device;
+import device.DeviceManual;
+import device.Microwave;
+import entity.Father;
+import event.Event;
 import event.EventMachine;
 import event.FoodReadyEvent;
 import house.*;
@@ -16,28 +20,7 @@ import java.util.ArrayList;
 
 public class Main {
   public static void main(String[] args) throws IOException {
-//    new NaiveSimulation(DummyHouse.get()).simulate(4);
-//    System.out.println(EventMachine.getEventCluster().getEvents().size());
-
-    House house = new House();
-    house.add(new Floor());
-    house.add(new Floor());
-    Kitchen kitchen = new Kitchen(house.floor(0));
-    kitchen.place(new Microwave());
-    kitchen.place(new Fridge());
-
-    LivingRoom livingRoom = new LivingRoom(house.floor(0));
-    livingRoom.place(new CDPlayer());
-
-    Room room1 = new Room(house.floor(1));
-    Room room2 = new Room(house.floor(1));
-
-    room1.place(new Television());
-    room2.place(new Phone());
-
-
-
-
+    new NaiveSimulation(DummyHouse.get()).simulate(3);
 //    for(int i = 0; i < 30; i++) {
 //      System.out.println(EventMachine.getEventCluster().getEvents().get(i));
 //    }
@@ -64,8 +47,6 @@ public class Main {
 //    EventReport r = new EventReport(EventMachine.getEventCluster().getEvents());
 //    r.print();
 
-    HouseConfigurationReport houseConfigReport = new HouseConfigurationReport(house);
-    houseConfigReport.print();
 //
 //
 //    ArrayList<Device> devicesList = new ArrayList<Device>();

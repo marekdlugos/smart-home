@@ -16,7 +16,7 @@ public class ActiveState extends MicrowaveState {
     microwave.setState(new IdleState());
 
     if (!microwave.empty()) {
-      microwave.emit(new FoodReadyEvent());
+      microwave.emit(new FoodReadyEvent(microwave.getCurrentUser()));
     }
 
     return true;

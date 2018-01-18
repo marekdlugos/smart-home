@@ -55,14 +55,6 @@ public class Phone extends Device {
     this.number = contents;
   }
 
-//  public void handle(SpecialEvent event) {
-//    event.setHandler(this);
-//  }
-
-  public void handle(Event event) {
-    event.setHandler(this);
-  }
-
   public boolean isSwitchedOn() {
     return this.state instanceof ActiveState;
   }

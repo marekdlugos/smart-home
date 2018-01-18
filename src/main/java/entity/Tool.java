@@ -1,6 +1,10 @@
 package entity;
 
 public class Tool extends Entity {
+  protected Tool() {
+    super();
+  }
+
   private Person currentUser;
 
   public Person getCurrentUser() {

@@ -42,19 +42,15 @@ public class Television extends Device {
     this.tvchannel = tvchannel;
   }
 
-//  public void handle(SpecialEvent event) {
-//    event.setHandler(this);
-//  }
-
-  public void handle(Event event) {
-    event.setHandler(this);
-  }
-
   public boolean isSwitchedOn() {
     return getState() instanceof ActiveState;
   }
 
   public TelevisionState getState() {
     return (TelevisionState) state;
+  }
+
+  public boolean isActive() {
+    return this.state instanceof ActiveState;
   }
 }

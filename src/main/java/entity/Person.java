@@ -2,11 +2,17 @@ package entity;
 
 import activity.Activity;
 import activity.ActivityMachine;
+import device.Microwave;
+import event.FoodReadyEvent;
 
 import java.util.Date;
 
 public class Person extends Animal {
   private Tool currentTool;
+
+  protected Person() {
+    super();
+  }
 
   public boolean use(Tool tool) {
     if (tool.getCurrentUser() != null) {
@@ -32,5 +38,15 @@ public class Person extends Animal {
 
   public boolean isUsingTool() {
     return currentTool != null;
+  }
+
+  public void handle(FoodReadyEvent event) {
+    if(event.getUser() != this) {
+      return;
+    }
+
+    event.setHandler(this);
+
+    ((Microwave) this.getCurrentTool()).setContents("");
   }
 }
