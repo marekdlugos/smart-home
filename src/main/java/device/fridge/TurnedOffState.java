@@ -1,9 +1,8 @@
 package device.fridge;
 
 import device.Fridge;
-import event.FoodReadyEvent;
-import event.FridgeEmptySupply;
-import event.FridgeFoodEndagered;
+import event.FridgeEmptySupplyEvent;
+import event.FridgeFoodEndageredEvent;
 
 public class TurnedOffState extends FridgeState {
   public double getConsumptionRate() {
@@ -20,7 +19,7 @@ public class TurnedOffState extends FridgeState {
 
     fridge.getContents().put(contents, fridgeAmount + amount);
 
-    fridge.emit(new FridgeFoodEndagered());
+    fridge.emit(new FridgeFoodEndageredEvent());
 
     return true;
   }
@@ -33,7 +32,7 @@ public class TurnedOffState extends FridgeState {
     Integer fridgeAmount = fridge.getContents().containsKey(contents) ? fridge.getContents().get(contents) : 0;
 
     if (fridgeAmount - amount <= 0) {
-      fridge.emit(new FridgeEmptySupply(contents));
+      fridge.emit(new FridgeEmptySupplyEvent(fridge, contents, amount));
       fridge.getContents().put(contents, 0);
       return false;
     }

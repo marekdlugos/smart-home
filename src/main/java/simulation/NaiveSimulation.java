@@ -1,9 +1,6 @@
 package simulation;
 
-import device.CDPlayer;
-import device.Device;
-import device.Fridge;
-import device.Microwave;
+import device.*;
 import entity.Animal;
 import entity.Person;
 import entity.Tool;
@@ -15,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class NaiveSimulation {
   private House house;
@@ -38,6 +36,7 @@ public class NaiveSimulation {
             p.use(getRandomDevice(p.getCurrentRoom()));
           }
 
+//          System.out.println(p.getCurrentTool() + " r: " + p.getCurrentRoom());
           deviceScenario(p.getCurrentTool());
         }
       }
@@ -59,7 +58,9 @@ public class NaiveSimulation {
 
     Random rand = new Random();
 
-    return rooms.get(rand.nextInt(rooms.size()));
+    Room randomRoom = rooms.get(rand.nextInt(rooms.size()));
+
+    return randomRoom;
   }
 
   private Device getRandomDevice(Room room) {
@@ -76,10 +77,14 @@ public class NaiveSimulation {
       deviceScenario((Fridge) device);
     } else if (device instanceof CDPlayer) {
       deviceScenario((CDPlayer) device);
+    } else if (device instanceof Light) {
+      deviceScenario((Light) device);
+    } else if (device instanceof Television) {
+      deviceScenario((Television) device);
     }
   }
 
-  private void deviceScenario(Microwave microwave)  {
+  private void deviceScenario(Microwave microwave) {
     if (microwave.isSwitchedOn()) {
       microwave.switchOff();
       microwave.turnOff();
@@ -114,6 +119,27 @@ public class NaiveSimulation {
     cdPlayer.turnOn();
     cdPlayer.place("Flexim ako Gott");
     cdPlayer.switchOn();
+  }
+
+  private void deviceScenario(Light light)  {
+    if (light.isActive()) {
+      light.turnOff();
+      light.getCurrentUser().release();
+      return;
+    }
+
+    light.turnOn();
+  }
+
+  private void deviceScenario(Television television)  {
+    if (television.isActive()) {
+      television.turnOff();
+      television.getCurrentUser().release();
+      return;
+    }
+
+    television.turnOn();
+    television.setTvchannel("MTV");
   }
 
   private String randomFood() {

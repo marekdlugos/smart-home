@@ -11,7 +11,7 @@ public class Event {
 //  public abstract void dispatchToHandler(Entity handler);
 
   public void dispatchToHandler(Entity handler) {
-    handler.handle(this);
+    throw new UnsupportedOperationException();
   }
 
   public void setSource(Entity source) {

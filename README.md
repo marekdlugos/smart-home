@@ -13,7 +13,7 @@ Authors: Peter Toth, Vu Tien Trang, Marek Dlugos
 - State Machine — package activity that records activities
 - Observer & Listener - notifying people about events that happened
 - Lazy Initialization - loading the device manuals
-- Singleton -
+- Singleton - Container for Events & Activities
 ...
 
 ### Our solution

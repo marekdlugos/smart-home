@@ -2,7 +2,11 @@ package entity;
 
 import house.Room;
 
-public abstract class Animal {
+public abstract class Animal extends Entity {
+  protected Animal() {
+    super();
+  }
+
   private Room currentRoom;
 
   public void enterRoom(Room room) {

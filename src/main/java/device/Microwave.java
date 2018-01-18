@@ -51,10 +51,6 @@ public class Microwave extends Device {
     this.contents = contents;
   }
 
-//  public void handle(SpecialEvent event) {
-//    event.setHandler(this);
-//  }
-
   public boolean isSwitchedOn() {
     return getState() instanceof ActiveState;
   }

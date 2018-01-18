@@ -12,6 +12,8 @@ public class Device extends Tool {
   private Double energyConsumed;
 
   public Device() {
+    super();
+
     this.createdAt = System.currentTimeMillis();
     this.stateLastChangedAt = this.createdAt;
     this.energyConsumed = 0.0;
@@ -62,5 +64,13 @@ public class Device extends Tool {
     }
 
     return warranty;
+  }
+
+  public boolean turnOn() {
+    throw new UnsupportedOperationException();
+  }
+
+  public boolean turnOff() {
+    throw new UnsupportedOperationException();
   }
 }
