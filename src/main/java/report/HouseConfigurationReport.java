@@ -1,5 +1,6 @@
 package report;
 
+import device.Device;
 import house.Floor;
 import house.House;
 import house.Room;
@@ -15,11 +16,56 @@ public class HouseConfigurationReport implements Report {
   private List<Room> rooms;
   private List<Floor> floors;
 
+
+
+  private StringBuilder report;
+
+  private static final String header = "------------- House Configuration Report -------------\n\n";
+
+  private static final String footer = "\n------------------ End of Report -------------------\n";
+
   public HouseConfigurationReport(House house) {
     this.house = house;
+    report = new StringBuilder();
+    report.append(header);
   }
 
+
+  private void appendStuff() {
+    List<Floor> floors = house.getFloors();
+
+    int index = 1;
+
+    for (Floor floor : floors) {
+      report.append("Floor no. " + index + "\n");
+      appendRooms(floor.getRooms());
+      report.append("\n");
+      //report.append("_________\n");
+      index++;
+    }
+    report.append(footer);
+  }
+
+  private void appendRooms(List<Room> rooms) {
+    report.append("Rooms\n");
+    for (Room room : rooms) {
+      report.append("  " + room.toString() + "\n");
+      appendDevices(room.getDevices());
+    }
+  }
+
+  private void appendDevices(List<Device> devices) {
+    for (Device device : devices) {
+      report.append("    Devices\n");
+      report.append("        " + device.toString() + "\n");
+    }
+  }
+
+
   public void print() {
+    appendStuff();
+    System.out.println(report);
+
 
 //    PrintWriter writer = null;
 //    try {

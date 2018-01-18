@@ -9,6 +9,7 @@ import house.Room;
 
 /**
  * Provides fully persistent data structure for house and its objects inside.
+ * Will work as HashMap of JSON objects.
  * @author Thien Trang Vu
  */
 
@@ -17,13 +18,8 @@ public class FullyPersistentData {
 
   HashMap m_houseVersion;
 
-
   public FullyPersistentData() {
     this.m_houseVersion = new HashMap<Integer, House>();
-  }
-
-  public void setHouseVersion(int version, House house) {
-    m_houseVersion.put(version, house);
   }
 
   public void getHouseVersion(int version) {

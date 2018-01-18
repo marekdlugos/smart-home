@@ -1,12 +1,9 @@
 import device.*;
 import event.EventMachine;
 import event.FoodReadyEvent;
+import house.*;
 import persistence.FullyPersistentData;
 import persistence.Tree;
-import house.House;
-import house.Room;
-import house.Floor;
-import house.Kitchen;
 import iterator.HouseIterator;
 import report.ConsumptionReport;
 import report.EventReport;
@@ -24,12 +21,24 @@ public class Main {
 //    new NaiveSimulation(DummyHouse.get()).simulate(4);
 //    System.out.println(EventMachine.getEventCluster().getEvents().size());
 
-    //For PERSISTENT DS check purpose
-    Tree m_house = new Tree();
     House house = new House();
+    house.add(new Floor());
+    house.add(new Floor());
+    Kitchen kitchen = new Kitchen(house.floor(0));
+    kitchen.place(new Microwave());
+    kitchen.place(new Fridge());
 
-    FullyPersistentData persistentData = new FullyPersistentData();
-    persistentData.contructHouse(m_house);
+    LivingRoom livingRoom = new LivingRoom(house.floor(0));
+    livingRoom.place(new CDPlayer());
+
+    Room room1 = new Room(house.floor(1));
+    Room room2 = new Room(house.floor(1));
+
+    room1.place(new Television());
+    room2.place(new Phone());
+
+
+
 
 //    for(int i = 0; i < 30; i++) {
 //      System.out.println(EventMachine.getEventCluster().getEvents().get(i));
@@ -57,8 +66,8 @@ public class Main {
 //    EventReport r = new EventReport(EventMachine.getEventCluster().getEvents());
 //    r.print();
 
-//    HouseConfigurationReport houseConfigReport = new HouseConfigurationReport(house);
-//    houseConfigReport.print();
+    HouseConfigurationReport houseConfigReport = new HouseConfigurationReport(house);
+    houseConfigReport.print();
 //
 //
 //    ArrayList<Device> devicesList = new ArrayList<Device>();
