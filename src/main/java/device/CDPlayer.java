@@ -11,6 +11,7 @@ public class CDPlayer extends Device {
   public CDPlayer() {
     super();
     this.state = new TurnedOffState();
+    this.criticalPriority = 2;
   }
 
   public boolean place(String contents) {

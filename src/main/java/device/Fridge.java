@@ -14,6 +14,7 @@ public class Fridge extends Device {
     super();
     this.contents = new HashMap<String, Integer>();
     this.state = new TurnedOffState();
+    this.criticalPriority = 5;
   }
 
   public boolean withdraw(String item, Integer amount) {

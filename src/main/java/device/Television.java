@@ -11,6 +11,7 @@ public class Television extends Device {
   public Television() {
     super();
     this.state = new TurnedOffState();
+    this.criticalPriority = 4;
   }
 
   public boolean watch(String tvchannel) {

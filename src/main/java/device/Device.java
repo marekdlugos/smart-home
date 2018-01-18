@@ -1,10 +1,11 @@
 package device;
 
 import entity.Tool;
+import event.ExpiredWarrantyEvent;
 
 public class Device extends Tool {
   private int warranty; // stands for time left till the device will break
-  private int criticalPriority;
+  protected int criticalPriority;
   private Long createdAt;
   protected Long stateLastChangedAt;
   protected DeviceState state;
@@ -14,6 +15,8 @@ public class Device extends Tool {
     this.createdAt = System.currentTimeMillis();
     this.stateLastChangedAt = this.createdAt;
     this.energyConsumed = 0.0;
+    this.criticalPriority = 1;
+    this.warranty = 730;
   }
 
   protected Long getCreatedAt() {
@@ -45,5 +48,19 @@ public class Device extends Tool {
     this.touchStateChangedAt();
 
     return energyConsumed;
+  }
+
+  public Integer getCriticalPriority() {
+    return criticalPriority;
+  }
+
+  public Integer getWarranty() {
+    this.warranty -= Math.round((System.currentTimeMillis() - createdAt)/86400000.0);
+
+    if (warranty <= 0) {
+      emit(new ExpiredWarrantyEvent());
+    }
+
+    return warranty;
   }
 }

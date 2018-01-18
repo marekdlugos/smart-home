@@ -1,7 +1,6 @@
 package entity;
 
-import event.EventMachine;
-import event.Event;
+import event.*;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -22,9 +21,9 @@ public class Entity implements Observer {
     e.dispatchToHandler(this);
   }
 
-  public void handle(Event event) {
-  }
-
-//  public void handle(SpecialEvent event) {
-//  }
+  public void handle(Event event) {}
+  public void handle(ExpiredWarrantyEvent event) {}
+  public void handle(FoodReadyEvent event) {}
+  public void handle(FridgeEmptySupply event) {}
+  public void handle(FridgeFoodEndagered event) {}
 }

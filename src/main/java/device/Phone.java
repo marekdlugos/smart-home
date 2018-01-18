@@ -16,6 +16,7 @@ public class Phone extends Device {
     super();
     this.energyConsumed = 0.0;
     this.state = new TurnedOffState();
+    this.criticalPriority = 6;
   }
 
   public boolean call(String number) {

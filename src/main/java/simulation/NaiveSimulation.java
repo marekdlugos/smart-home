@@ -6,6 +6,7 @@ import device.Fridge;
 import device.Microwave;
 import entity.Animal;
 import entity.Person;
+import entity.Tool;
 import house.House;
 import house.Room;
 import iterator.HouseIterator;
@@ -16,7 +17,6 @@ import java.util.List;
 import java.util.Random;
 
 public class NaiveSimulation {
-  private Integer duration;
   private House house;
 
   public NaiveSimulation(House house) {
@@ -33,12 +33,12 @@ public class NaiveSimulation {
         if (animal instanceof Person) {
           Person p = (Person) animal;
 
-          if (!p.isUsingDevice()) {
+          if (!p.isUsingTool()) {
             p.enterRoom(getRandomRoom(p));
             p.use(getRandomDevice(p.getCurrentRoom()));
           }
 
-          deviceScenario(p.getCurrentDevice());
+          deviceScenario(p.getCurrentTool());
         }
       }
     }
@@ -69,7 +69,7 @@ public class NaiveSimulation {
     return room.getDevices().get(rand.nextInt(room.getDevices().size()));
   }
 
-  private void deviceScenario(Device device) {
+  private void deviceScenario(Tool device) {
     if (device instanceof Microwave) {
       deviceScenario((Microwave) device);
     } else if (device instanceof Fridge) {

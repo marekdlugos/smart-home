@@ -12,6 +12,7 @@ public class Microwave extends Device {
   public Microwave() {
     super();
     this.state = new TurnedOffState();
+    this.criticalPriority = 3;
   }
 
   public boolean place(String contents) {

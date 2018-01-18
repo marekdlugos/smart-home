@@ -2,37 +2,35 @@ package entity;
 
 import activity.Activity;
 import activity.ActivityMachine;
-import device.Device;
-import house.Room;
 
 import java.util.Date;
 
 public class Person extends Animal {
-  private Device currentDevice;
+  private Tool currentTool;
 
-  public boolean use(Device device) {
-    if (device.getCurrentUser() != null) {
+  public boolean use(Tool tool) {
+    if (tool.getCurrentUser() != null) {
       return false;
     }
 
-    this.currentDevice = device;
-    this.currentDevice.setCurrentUser(this);
+    this.currentTool = tool;
+    this.currentTool.setCurrentUser(this);
 
-    ActivityMachine.record(new Activity(this, device, new Date()));
+    ActivityMachine.record(new Activity(this, tool, new Date()));
 
     return true;
   }
 
-  public Device getCurrentDevice() {
-    return currentDevice;
+  public Tool getCurrentTool() {
+    return currentTool;
   }
 
   public void release() {
-    this.currentDevice.setCurrentUser(null);
-    this.currentDevice = null;
+    this.currentTool.setCurrentUser(null);
+    this.currentTool = null;
   }
 
-  public boolean isUsingDevice() {
-    return currentDevice != null;
+  public boolean isUsingTool() {
+    return currentTool != null;
   }
 }
