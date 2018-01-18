@@ -23,7 +23,5 @@ public class ShortCircuitSensor extends Sensor {
         }
       }
     }
-
-    System.out.println("Handling skrat");
   }
 }

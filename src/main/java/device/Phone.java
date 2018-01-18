@@ -55,7 +55,7 @@ public class Phone extends Device {
     this.number = contents;
   }
 
-  public boolean isSwitchedOn() {
+  public boolean isActive() {
     return this.state instanceof ActiveState;
   }
 }

@@ -8,7 +8,8 @@ public class ActiveState extends TelevisionState {
   }
 
   public boolean pressFireButton(Television television) {
-    return false;
+    television.setState(new ActiveState());
+    return true;
   }
 
   public boolean pressStopButton(Television television) {

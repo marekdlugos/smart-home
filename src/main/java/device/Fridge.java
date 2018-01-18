@@ -26,7 +26,7 @@ public class Fridge extends Device {
   }
 
   public boolean place(String item, Integer amount) {
-    return getState().withdraw(this, item, amount);
+    return getState().place(this, item, amount);
   }
 
   public boolean turnOn() {

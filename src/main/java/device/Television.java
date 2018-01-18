@@ -6,7 +6,7 @@ import device.television.TurnedOffState;
 import event.Event;
 
 public class Television extends Device {
-  private String tvchannel;
+  private String tvchannel = "";
 
   public Television() {
     super();

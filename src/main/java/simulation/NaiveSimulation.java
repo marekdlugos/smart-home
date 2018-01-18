@@ -28,15 +28,25 @@ public class NaiveSimulation {
 
     while((System.currentTimeMillis() - start) < duration*1000) {
       for(Animal animal : house.getInhabitants()) {
+        try {
+          Thread.sleep(10);
+
+        } catch (Exception e) {
+
+        }
+
         if (animal instanceof Person) {
           Person p = (Person) animal;
 
           if (!p.isUsingTool()) {
             p.enterRoom(getRandomRoom(p));
+
             p.use(getRandomDevice(p.getCurrentRoom()));
+//            System.out.println("random device: " + p.getCurrentTool() + " p: " + p);
+          } else {
+//            System.out.println("current device: " + p.getCurrentTool() + " p: " + p);
           }
 
-//          System.out.println(p.getCurrentTool() + " r: " + p.getCurrentRoom());
           deviceScenario(p.getCurrentTool());
         }
       }
@@ -133,13 +143,25 @@ public class NaiveSimulation {
 
   private void deviceScenario(Television television)  {
     if (television.isActive()) {
+      television.switchOff();
       television.turnOff();
       television.getCurrentUser().release();
       return;
     }
 
+    television.switchOn();
     television.turnOn();
-    television.setTvchannel("MTV");
+    television.watch("MTV");
+  }
+
+  private void deviceScenario(Phone phone)  {
+    if (phone.isActive()) {
+      phone.turnOff();
+      phone.getCurrentUser().release();
+      return;
+    }
+
+    phone.turnOn();
   }
 
   private String randomFood() {

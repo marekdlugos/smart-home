@@ -22,9 +22,10 @@ import java.util.ArrayList;
 public class Main {
   public static void main(String[] args) throws IOException {
     new NaiveSimulation(DummyHouse.get()).simulate(3);
-//    for(int i = 0; i < 30; i++) {
-//      System.out.println(EventMachine.getEventCluster().getEvents().get(i));
-//    }
+
+    for(Event e : EventMachine.getEventCluster().getEvents()) {
+      System.out.println(e + " handler: " + e.getHandler());
+    }
 
 //    House house = new House();
 //    Room room1 = new Room(house.floor(0));

@@ -5,9 +5,11 @@ import entity.Person;
 
 public class FoodReadyEvent extends Event {
   private Person user;
+  private String contents;
 
-  public FoodReadyEvent(Person user) {
+  public FoodReadyEvent(Person user, String contents) {
     this.user = user;
+    this.contents = contents;
   }
 
   public Person getUser() {

@@ -10,8 +10,12 @@ public abstract class Animal extends Entity {
   private Room currentRoom;
 
   public void enterRoom(Room room) {
+    if(this.currentRoom != null) {
+      this.currentRoom.getOccupants().remove(this);
+    }
+
     this.currentRoom = room;
-    room.getOccupants().add(this);
+    this.currentRoom.getOccupants().add(this);
   }
 
   public Room getCurrentRoom() {
