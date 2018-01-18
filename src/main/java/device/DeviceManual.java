@@ -25,7 +25,8 @@ public class DeviceManual {
       e.printStackTrace();
     }
 
-    return new DeviceManual(json.toString());
+    return new DeviceManual(json.getString(device.getClass().getSimpleName()));
+
   }
 
   public DeviceManual(String content) {

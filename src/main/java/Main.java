@@ -1,6 +1,4 @@
-import device.Device;
-import device.DeviceManual;
-import device.Microwave;
+import device.*;
 import event.EventMachine;
 import event.FoodReadyEvent;
 import persistence.FullyPersistentData;
