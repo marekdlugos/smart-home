@@ -9,56 +9,33 @@ import event.Event;
 public class Microwave extends Device {
   private String contents = "";
 
-  private MicrowaveState state;
-  private Long stateLastChangedAt;
-  private Double energyConsumed;
-
   public Microwave() {
     super();
-    this.energyConsumed = 0.0;
     this.state = new TurnedOffState();
   }
 
-  public void setState(MicrowaveState state) {
-    this.energyConsumed += calculateConsumption(stateLastChangedAt, System.currentTimeMillis(), state.getConsumptionRate());
-
-    touchStateChangedAt();
-
-    this.state = state;
-  }
-
-  public double calculateConsumption(Long from, Long to, Double consumptionPerHour) {
-    Long period = to - from;
-    Double totalConsumption = period * consumptionPerHour;
-    return (this.energyConsumed =+ totalConsumption);
-  }
-
-  public void touchStateChangedAt() {
-    this.stateLastChangedAt = System.currentTimeMillis();
-  }
-
   public boolean place(String contents) {
-    return this.state.place(this, contents);
+    return getState().place(this, contents);
   }
 
   public boolean turnOn() {
-    return this.state.pressStandbyButton(this);
+    return getState().pressStandbyButton(this);
   }
 
   public boolean turnOff() {
-    return this.state.pressStandbyButton(this);
+    return getState().pressStandbyButton(this);
   }
 
   public boolean switchOn() {
-    return this.state.pressFireButton(this);
+    return getState().pressFireButton(this);
   }
 
   public boolean switchOff() {
-    return this.state.pressStopButton(this);
+    return getState().pressStopButton(this);
   }
 
   public boolean withdraw() {
-    return this.state.withdraw(this);
+    return getState().withdraw(this);
   }
 
   public boolean empty() {
@@ -78,6 +55,10 @@ public class Microwave extends Device {
 //  }
 
   public boolean isSwitchedOn() {
-    return this.state instanceof ActiveState;
+    return getState() instanceof ActiveState;
+  }
+
+  public MicrowaveState getState() {
+    return (MicrowaveState) state;
   }
 }

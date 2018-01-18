@@ -1,53 +1,49 @@
 package device;
 
-import entity.Entity;
-import entity.Person;
+import entity.Tool;
 
-public class Device extends Entity {
+public class Device extends Tool {
   private int warranty; // stands for time left till the device will break
   private int criticalPriority;
   private Long createdAt;
   protected Long stateLastChangedAt;
-  private Person currentUser;
-  private DeviceState state;
-
+  protected DeviceState state;
+  private Double energyConsumed;
 
   public Device() {
     this.createdAt = System.currentTimeMillis();
+    this.stateLastChangedAt = this.createdAt;
+    this.energyConsumed = 0.0;
   }
 
-  public Long getCreatedAt() {
+  protected Long getCreatedAt() {
     return createdAt;
-  }
-
-  public Person getCurrentUser() {
-    return currentUser;
-  }
-
-  public void setCurrentUser(Person currentUser) {
-    this.currentUser = currentUser;
   }
 
   public DeviceManual getManual() {
     return DeviceManual.fetch(this);
   }
 
-  public void touchStateChangedAt() {
+  public void setState(DeviceState newState) {
+    getEnergyConsumed();
+
+    this.state = newState;
+  }
+
+  private void touchStateChangedAt() {
     this.stateLastChangedAt = System.currentTimeMillis();
   }
 
+  private double calculateConsumption(Long from, Long to, Double rate) {
+    // consumption rate is always defined per hour
+    return ((to - from)/3600000.0)*rate;
+  }
 
+  public Double getEnergyConsumed() {
+    this.energyConsumed += calculateConsumption(this.stateLastChangedAt, System.currentTimeMillis(), state.getConsumptionRate());
 
-//
-//  public boolean turnOn() {
-//    return this.state.pressStandbyButton(this);
-//  }
-//
-//  public boolean turnOff() {
-//    return this.state.pressStandbyButton(this);
-//  }
+    this.touchStateChangedAt();
 
-  public boolean isActive() {
-    return false;
+    return energyConsumed;
   }
 }

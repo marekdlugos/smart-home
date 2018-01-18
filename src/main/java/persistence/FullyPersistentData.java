@@ -19,7 +19,7 @@ public class FullyPersistentData {
 
 
   public FullyPersistentData() {
-    this.m_houseVersion = new HashMap<>();
+    this.m_houseVersion = new HashMap<Integer, House>();
   }
 
   public void setHouseVersion(int version, House house) {

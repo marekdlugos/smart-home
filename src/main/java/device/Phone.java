@@ -18,24 +18,6 @@ public class Phone extends Device {
     this.state = new TurnedOffState();
   }
 
-  public void setState(PhoneState state) {
-    this.energyConsumed += calculateConsumption(stateLastChangedAt, System.currentTimeMillis(), state.getConsumptionRate());
-
-    touchStateChangedAt();
-
-    this.state = state;
-  }
-
-  public double calculateConsumption(Long from, Long to, Double consumptionPerHour) {
-    Long period = to - from;
-    Double totalConsumption = period * consumptionPerHour;
-    return (this.energyConsumed =+ totalConsumption);
-  }
-
-  public void touchStateChangedAt() {
-    this.stateLastChangedAt = System.currentTimeMillis();
-  }
-
   public boolean call(String number) {
     return this.state.call(this, number);
   }

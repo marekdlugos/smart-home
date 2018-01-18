@@ -12,7 +12,7 @@ public class Tree {
 
   public Tree() {
     Tree.root = null;
-    m_dataList = new ArrayList<>();
+    m_dataList = new ArrayList<Integer>();
   }
 
   public boolean find(int id) {

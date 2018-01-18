@@ -16,13 +16,15 @@ import report.HouseConfigurationReport;
 import simulation.DummyHouse;
 import simulation.NaiveSimulation;
 
+import java.util.concurrent.TimeUnit;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class Main {
   public static void main(String[] args) throws IOException {
-    new NaiveSimulation(DummyHouse.get()).simulate(4);
-    System.out.println(EventMachine.getEventCluster().getEvents().size());
+//    new NaiveSimulation(DummyHouse.get()).simulate(4);
+//    System.out.println(EventMachine.getEventCluster().getEvents().size());
 
     //For PERSISTENT DS check purpose
     Tree m_house = new Tree();
@@ -30,7 +32,6 @@ public class Main {
 
     FullyPersistentData persistentData = new FullyPersistentData();
     persistentData.contructHouse(m_house);
-
 
 //    for(int i = 0; i < 30; i++) {
 //      System.out.println(EventMachine.getEventCluster().getEvents().get(i));

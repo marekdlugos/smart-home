@@ -6,74 +6,54 @@ import device.television.TurnedOffState;
 import event.Event;
 
 public class Television extends Device {
+  private String tvchannel;
 
-    private String tvchannel;
+  public Television() {
+    super();
+    this.state = new TurnedOffState();
+  }
 
-    private TelevisionState state;
-    private Long stateLastChangedAt;
-    private Double energyConsumed;
+  public boolean watch(String tvchannel) {
+    return getState().watch(this, tvchannel);
+  }
 
-    public Television() {
-      super();
-      this.energyConsumed = 0.0;
-      this.state = new TurnedOffState();
-    }
+  public boolean turnOn() {
+    return getState().pressStandbyButton(this);
+  }
 
-    public void setState(TelevisionState state) {
-      this.energyConsumed += calculateConsumption(stateLastChangedAt, System.currentTimeMillis(), state.getConsumptionRate());
+  public boolean turnOff() {
+    return getState().pressStandbyButton(this);
+  }
 
-      touchStateChangedAt();
+  public boolean switchOn() {
+    return getState().pressFireButton(this);
+  }
 
-      this.state = state;
-    }
+  public boolean switchOff() {
+    return getState().pressStopButton(this);
+  }
 
-    public double calculateConsumption(Long from, Long to, Double consumptionPerHour) {
-      Long period = to - from;
-      Double totalConsumption = period * consumptionPerHour;
-      return (this.energyConsumed =+ totalConsumption);
-    }
+  public String getTvchannel() {
+    return tvchannel;
+  }
 
-    public void touchStateChangedAt() {
-      this.stateLastChangedAt = System.currentTimeMillis();
-    }
-
-    public boolean watch(String tvchannel) {
-      return this.state.watch(this, tvchannel);
-    }
-
-    public boolean turnOn() {
-      return this.state.pressStandbyButton(this);
-    }
-
-    public boolean turnOff() {
-      return this.state.pressStandbyButton(this);
-    }
-
-    public boolean switchOn() {
-      return this.state.pressFireButton(this);
-    }
-
-    public boolean switchOff() {
-      return this.state.pressStopButton(this);
-    }
-
-    public String getTvchannel() {
-      return tvchannel;
-    }
-
-    public void setTvchannel(String tvchannel) {
-      this.tvchannel = tvchannel;
-    }
+  public void setTvchannel(String tvchannel) {
+    this.tvchannel = tvchannel;
+  }
 
 //  public void handle(SpecialEvent event) {
 //    event.setHandler(this);
 //  }
 
-    public void handle(Event event) {
-      event.setHandler(this);
-    }
+  public void handle(Event event) {
+    event.setHandler(this);
+  }
 
   public boolean isSwitchedOn() {
-    return this.state instanceof ActiveState;
+    return getState() instanceof ActiveState;
+  }
+
+  public TelevisionState getState() {
+    return (TelevisionState) state;
   }
 }
