@@ -6,6 +6,7 @@ import iterator.HouseIterator;
 import report.ConsumptionReport;
 import report.EventReport;
 import report.HouseConfigurationReport;
+import report.SavingsReport;
 import simulation.DummyHouse;
 import simulation.NaiveSimulation;
 
@@ -36,8 +37,6 @@ public class Main {
     room2.place(new Phone());
 
 
-
-
 //    for(int i = 0; i < 30; i++) {
 //      System.out.println(EventMachine.getEventCluster().getEvents().get(i));
 //    }
@@ -66,6 +65,11 @@ public class Main {
 
     HouseConfigurationReport houseConfigReport = new HouseConfigurationReport(house);
     houseConfigReport.print();
+    houseConfigReport.generate();
+
+    SavingsReport savingsReport = new SavingsReport(house);
+    savingsReport.print();
+    savingsReport.generate();
 //
 //
 //    ArrayList<Device> devicesList = new ArrayList<Device>();

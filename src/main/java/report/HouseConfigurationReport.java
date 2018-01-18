@@ -58,11 +58,19 @@ public class HouseConfigurationReport implements Report {
     }
   }
 
+  public void generate() {
+    try (PrintStream out = new PrintStream(new FileOutputStream("HouseConfigurationReport.txt"))) {
+      out.print(report);
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    }
+
+  }
+
 
   public void print() {
     appendStuff();
     System.out.println(report);
-
 
 //    PrintWriter writer = null;
 //    try {
@@ -88,6 +96,5 @@ public class HouseConfigurationReport implements Report {
     // HOUSE -> Floor 1 -> Room 2 []
     // HOUSE -> Floor 1 -> Room 3 []
     // HOUSE -> Floor 2 -> Room 4 []
-
   }
 }
