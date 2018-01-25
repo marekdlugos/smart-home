@@ -13,6 +13,7 @@ import java.util.List;
 
 /**
  * Report that will generate a list of all devices that were switched on and not used at the same time.
+ *
  */
 public class SavingsReport implements Report {
   private List<Device> devices;
@@ -48,6 +49,7 @@ public class SavingsReport implements Report {
       appendDevices(room.getDevices());
     }
   }
+
 
   private void appendDevices(List<Device> devices) {
     report.append("    Devices\n");
