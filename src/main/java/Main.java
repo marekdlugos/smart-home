@@ -1,14 +1,5 @@
-import device.Device;
-import device.DeviceManual;
-import device.Microwave;
-import entity.Father;
 import event.Event;
 import event.EventMachine;
-import event.FoodReadyEvent;
-import house.*;
-import iterator.HouseIterator;
-import report.ConsumptionReport;
-import report.EventReport;
 import report.HouseConfigurationReport;
 import report.SavingsReport;
 import simulation.DummyHouse;

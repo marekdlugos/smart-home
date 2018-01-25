@@ -1,6 +1,8 @@
 # Smart home
 Semestral project for Object Design &amp; Modeling class
 
+This repository implements and simulates the House with people, devices and animals. Those entities might generate events and perform activities. At the end of the simulation, different reports are printed into the text file. Those are giving user a picture about House configuration (number of floors, rooms, people and all the other entities), consumption (and cost), events happened (who has emitted them and who has handled them) etc..    
+
 ![Class diagram](class-diagram.png)
 
 Authors: Peter Toth, Vu Tien Trang, Marek Dlugos
