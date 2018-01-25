@@ -22,3 +22,9 @@ Authors: Peter Toth, Vu Tien Trang, Marek Dlugos
 - Generating events - 
 - Full data persistence - helps us preserve all the states of the entities in our application (includes history).
 ...
+
+## JavaDoc
+
+For more information don't hesitate to visit the JavaDoc in `javadoc` folder.
+
+![JavaDoc](javadoc.png)

@@ -5,6 +5,9 @@ import device.phone.PhoneState;
 import device.phone.TurnedOffState;
 import event.Event;
 
+/**
+ * Represents a phone.
+ */
 public class Phone extends Device {
   private String number;
 

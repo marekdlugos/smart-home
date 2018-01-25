@@ -3,6 +3,9 @@ package event;
 import entity.Entity;
 import entity.Person;
 
+/**
+ * Represents the event when the food is ready.
+ */
 public class FoodReadyEvent extends Event {
   private Person user;
   private String contents;

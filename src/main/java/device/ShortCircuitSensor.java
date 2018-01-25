@@ -4,6 +4,9 @@ import event.ShortCircuitEvent;
 import house.House;
 import iterator.HouseIterator;
 
+/**
+ * Represents a Circuit Sensor.
+ */
 public class ShortCircuitSensor extends Sensor {
   private House house;
 

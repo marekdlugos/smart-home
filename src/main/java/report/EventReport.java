@@ -13,6 +13,10 @@ public class EventReport implements Report {
     this.events = events;
   }
 
+  /**
+   * Prints out the Event Report into EventReport.txt file. It's a list of events grouped by type of the event, source of the event and target of the event (which entity handled the event).
+   * @throws FileNotFoundException
+   */
   public void print() throws FileNotFoundException {
     PrintWriter writer;
     writer = new PrintWriter("EventReport.txt");

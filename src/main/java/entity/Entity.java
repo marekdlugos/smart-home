@@ -5,7 +5,9 @@ import event.*;
 import java.util.Observable;
 import java.util.Observer;
 
-
+/**
+ * Represents the holy grail of all the beings in our application. Everyone that can emit some event extends from Entity.
+ */
 public class Entity implements Observer {
   protected Entity() {
     subscribe();

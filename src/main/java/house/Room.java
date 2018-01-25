@@ -7,6 +7,9 @@ import entity.Animal;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents the rooms in the house.
+ */
 public class Room {
   private int id;
   private Floor floor;
@@ -43,6 +46,10 @@ public class Room {
     return floor;
   }
 
+  /**
+   * Switch all the lights off.
+   * @return true once all the lights are switched off.
+   */
   public boolean switchLightsOff() {
     for(Device d : devices) {
       if (d instanceof Light) {
@@ -53,6 +60,10 @@ public class Room {
     return true;
   }
 
+  /**
+   * Switch all the lights on.
+   * @return true once all the lights are switched on.
+   */
   public boolean switchLightsOn() {
     for(Device d : devices) {
       if (d instanceof Light) {
@@ -63,10 +74,18 @@ public class Room {
     return true;
   }
 
+  /**
+   * Gets all the devices in the room.
+   * @return list of devices in the room.
+   */
   public List<Device> getDevices() {
     return devices;
   }
 
+  /**
+   * Gets all the animals in the room.
+   * @return list of animals in the room.
+   */
   public List<Animal> getOccupants() {
     return occupants;
   }

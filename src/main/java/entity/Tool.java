@@ -1,5 +1,8 @@
 package entity;
 
+/**
+ * Represents any kind of a tool.
+ */
 public class Tool extends Entity {
   protected Tool() {
     super();

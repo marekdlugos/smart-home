@@ -3,6 +3,9 @@ package event;
 import device.Fridge;
 import entity.Entity;
 
+/**
+ * Represents the event when the fridge is empty.
+ */
 public class FridgeEmptySupplyEvent extends Event {
   private Fridge fridge;
   private String contents;

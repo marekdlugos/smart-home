@@ -56,7 +56,7 @@ public class Main {
     SavingsReport savingsReport = new SavingsReport(DummyHouse.get());
     savingsReport.print();
     savingsReport.generate();
-//
+
 //
 //    ArrayList<Device> devicesList = new ArrayList<Device>();
 //    devicesList.add(m);
@@ -70,17 +70,5 @@ public class Main {
 //      System.out.println(it.next() + " " + it.next().getFloor());
 //    }
 
-    // factorize the shit
-    // apply random cycle to them
-    // make report
-      // HouseConfigurationReport
-        // veškerá konfigurační data domu zachovávající
-        // hieararchii - dům -> patro -> místnost -> okno -> žaluzie atd. Plus jací jsou obyvatelé domu
-      // EventReport
-        // report eventů, kde grupujeme eventy podle typu, zdroje eventů a jejich cíle (jaká entita event odbavila)
-      // ActivityAndUsageReport
-        // Report akcí (aktivit) jednotlivých osob a zvířat, kolikrát které osoby použily které zařízení
-      // ConsumptionReport
-        // Kolik jednotlivé spotřebiče spotřebovaly eletřiny, plynu, vody. Včetně finančního vyčíslení
   }
 }

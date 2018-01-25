@@ -4,6 +4,9 @@ import java.util.Iterator;
 import house.House;
 import house.Room;
 
+/**
+ * Represents the Iterator that goes through all the rooms in the House.
+ */
 public class HouseIterator implements Iterator<Room> {
   private House house;
   private Room currentRoom;
@@ -12,6 +15,10 @@ public class HouseIterator implements Iterator<Room> {
     this.house = house;
   }
 
+  /**
+   * Checks if there is "another" room in the house.
+   * @return boolean based on wheater there is another room in the house or not.
+   */
   public boolean hasNext() {
     if (houseIsEmpty()) { return false; }
 
@@ -36,6 +43,10 @@ public class HouseIterator implements Iterator<Room> {
     return false;
   }
 
+  /**
+   * Get's the next Room "in the list".
+   * @return the next Room "in the list".
+   */
   public Room next() {
     return currentRoom;
 //    if (currentRoom == null) {
@@ -63,6 +74,10 @@ public class HouseIterator implements Iterator<Room> {
     throw new UnsupportedOperationException();
   }
 
+  /**
+   * Checks if the house is empty.
+   * @return true or false based on the fact if the house is empty or not.
+   */
   private boolean houseIsEmpty() {
     if (house.floor(0).getRooms().isEmpty()) {
       return true;

@@ -8,6 +8,9 @@ import device.Sensor;
 import entity.Animal;
 import iterator.HouseIterator;
 
+/**
+ * Represents House.
+ */
 public class House {
   private List<Floor> floors = new ArrayList<Floor>();
   private List<Animal> inhabitants = new ArrayList<Animal>();
@@ -17,11 +20,20 @@ public class House {
     floors.add(new Floor());
   }
 
+  /**
+   * Attach a floor to the House.
+   * @param floor A Floor that will be attached to the House.
+   */
   public void add(Floor floor) {
     floor.setHouse(this);
     this.floors.add(floor);
   }
 
+  /**
+   * Attach room to the House.
+   * @param floorNumber specifies in which floor the room is located.
+   * @param room specifies the room that will be attached.
+   */
   public void add(Integer floorNumber, Room room) {
     floors.get(floorNumber).add(room);
   }

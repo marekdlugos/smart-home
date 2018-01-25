@@ -4,6 +4,9 @@ import device.light.ActiveState;
 import device.light.LightState;
 import device.light.TurnedOffState;
 
+/**
+ * Represents a Light.
+ */
 public class Light extends Device {
   public Light() {
     super();

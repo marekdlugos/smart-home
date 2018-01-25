@@ -5,6 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * Represents flor in the House.
+ */
 public class Floor {
 
   @JsonProperty("id")

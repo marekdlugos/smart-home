@@ -1,5 +1,8 @@
 package house;
 
+/**
+ * Represents outdoor blinds that are attached to the windows.
+ */
 public class OutdoorBlind {
   private Room room;
 

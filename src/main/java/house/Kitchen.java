@@ -1,5 +1,8 @@
 package house;
 
+/**
+ * Represents Kitchen in the House.
+ */
 public class Kitchen extends Room {
   protected Kitchen() {}
 

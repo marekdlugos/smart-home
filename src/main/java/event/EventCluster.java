@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 
+/**
+ * Represents Event Cluster.
+ */
 public class EventCluster extends Observable {
   private List<Event> events = new ArrayList<Event>();
 

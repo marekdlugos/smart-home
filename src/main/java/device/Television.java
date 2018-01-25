@@ -5,6 +5,9 @@ import device.television.TelevisionState;
 import device.television.TurnedOffState;
 import event.Event;
 
+/**
+ * Represents a Television.
+ */
 public class Television extends Device {
   private String tvchannel = "";
 

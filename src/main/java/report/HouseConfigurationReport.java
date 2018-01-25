@@ -11,6 +11,9 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.util.List;
 
+/**
+ * The whole configuration of the House.
+ */
 public class HouseConfigurationReport implements Report {
   private House house;
   private List<Room> rooms;
@@ -22,13 +25,19 @@ public class HouseConfigurationReport implements Report {
 
   private static final String footer = "\n------------------ End of Report -------------------\n";
 
+  /**
+   * Creates a new House config report. Append the header of the report.
+   * @param house The House config report will be generated according to the house passed in this param.
+   */
   public HouseConfigurationReport(House house) {
     this.house = house;
     report = new StringBuilder();
     report.append(header);
   }
 
-
+  /**
+   * Iterate through the floors and rooms and print out the actual report.
+   */
   private void appendStuff() {
     List<Floor> floors = house.getFloors();
 
@@ -43,6 +52,10 @@ public class HouseConfigurationReport implements Report {
     report.append(footer);
   }
 
+  /**
+   * Print out the rooms and devices list.
+   * @param rooms A list of the rooms.
+   */
   private void appendRooms(List<Room> rooms) {
     report.append("Rooms\n");
     for (Room room : rooms) {
@@ -51,6 +64,10 @@ public class HouseConfigurationReport implements Report {
     }
   }
 
+  /**
+   * Print out the devices list.
+   * @param devices A list of devices in the house.
+   */
   private void appendDevices(List<Device> devices) {
     report.append("    Devices\n");
     for (Device device : devices) {
@@ -58,6 +75,9 @@ public class HouseConfigurationReport implements Report {
     }
   }
 
+  /**
+   * Print the result (finished report) into the file.
+   */
   public void generate() {
     try (PrintStream out = new PrintStream(new FileOutputStream("HouseConfigurationReport.txt"))) {
       out.print(report);
@@ -67,34 +87,11 @@ public class HouseConfigurationReport implements Report {
 
   }
 
-
+  /**
+   * Print the report on the console line.
+   */
   public void print() {
     appendStuff();
     System.out.println(report);
-
-//    PrintWriter writer = null;
-//    try {
-//      HouseIterator it = house.iterator();
-//      writer = new PrintWriter("/Users/Marek/Desktop/House-Config-Report.txt", "UTF-8");
-//      writer.println("------------------------- HOUSE CONFIGURATION REPORT -------------------------");
-////      while(it.hasNext()) {
-////        writer.println(it.next().getFloor().getRooms());
-////        writer.println(it.next().getFloor().getHouse());
-////        writer.println(it.next().getFloor().getClass() + " -> " + it.next().getClass());
-////      }
-//    } catch (FileNotFoundException e) {
-//      e.printStackTrace();
-//    } catch (UnsupportedEncodingException e) {
-//      e.printStackTrace();
-//    }
-//
-//    writer.close();
-
-    // HOUSE
-    // HOUSE -> Floor 1 []
-    // HOUSE -> Floor 1 -> Room 1 []
-    // HOUSE -> Floor 1 -> Room 2 []
-    // HOUSE -> Floor 1 -> Room 3 []
-    // HOUSE -> Floor 2 -> Room 4 []
   }
 }

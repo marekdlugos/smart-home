@@ -7,6 +7,9 @@ import device.fridge.TurnedOffState;
 import java.util.Map;
 import java.util.HashMap;
 
+/**
+ * Represents a Fridge.
+ */
 public class Fridge extends Device {
   Map<String, Integer> contents;
 

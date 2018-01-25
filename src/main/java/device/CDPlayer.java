@@ -5,6 +5,9 @@ import device.cdplayer.CDPlayerState;
 import device.cdplayer.TurnedOffState;
 import event.Event;
 
+/**
+ * Represents CD Player device.
+ */
 public class CDPlayer extends Device {
   private String contents = "";
 

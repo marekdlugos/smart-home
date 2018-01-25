@@ -6,6 +6,9 @@ import device.microwave.TurnedOffState;
 
 import event.Event;
 
+/**
+ * Represents a Microwave.
+ */
 public class Microwave extends Device {
   private String contents = "";
 

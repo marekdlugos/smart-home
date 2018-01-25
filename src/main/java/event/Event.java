@@ -3,6 +3,9 @@ package event;
 import entity.Entity;
 import java.util.Date;
 
+/**
+ * Represents events.
+ */
 public class Event {
   Entity source;
   Entity handler;

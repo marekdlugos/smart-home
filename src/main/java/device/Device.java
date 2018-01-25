@@ -3,6 +3,9 @@ package device;
 import entity.Tool;
 import event.ExpiredWarrantyEvent;
 
+/**
+ * Represents the device. Device is a child of a tool.
+ */
 public class Device extends Tool {
   private int warranty; // stands for time left till the device will break
   protected int criticalPriority;

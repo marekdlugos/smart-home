@@ -1,5 +1,8 @@
 package house;
 
+/**
+ * Represents the windows in the House.
+ */
 public class Window {
   private Room room;
   private boolean isOpened = false;
